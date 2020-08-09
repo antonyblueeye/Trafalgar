@@ -1,0 +1,110 @@
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin resp-font-size($font-size) {
+  font-size: $font-size + px;
+  $first-bp: $font-size - $font-size * 0.1;
+  $second-bp: $first-bp - $first-bp * 0.1;
+  $third-bp: $second-bp - $second-bp * 0.1;
+  $fourth-bp: $third-bp - $third-bp * 0.1;
+  @include respond-to("xl") {
+    font-size: $first-bp + px;
+  }
+  @include respond-to("lg") {
+    font-size: $second-bp + px;
+  }
+  @include respond-to("md") {
+    font-size: $third-bp + px;
+  }
+  @include respond-to("sm") {
+    font-size: $fourth-bp + px;
+  }
+}
+
+@mixin resp-line-height($line-height) {
+  line-height: $line-height + px;
+  $first-bp: $line-height - $line-height * 0.1;
+  $second-bp: $first-bp - $first-bp * 0.1;
+  $third-bp: $second-bp - $second-bp * 0.1;
+  $fourth-bp: $third-bp - $third-bp * 0.1;
+  @include respond-to("xl") {
+    line-height: $first-bp + px;
+  }
+  @include respond-to("lg") {
+    line-height: $second-bp + px;
+  }
+  @include respond-to("md") {
+    line-height: $third-bp + px;
+  }
+  @include respond-to("sm") {
+    line-height: $fourth-bp + px;
+  }
+}
+
+@mixin btn($color, $bg-color) {
+  width: 200px;
+  border-radius: 55px;
+  @include resp-font-size(18);
+  font-weight: 700;
+  text-align: center;
+  line-height: 3.25;
+  text-decoration: none;
+  color: $color;
+  background: $bg-color;
+  transition: 0.3s ease-in;
+  border: 2px solid $bg-primary;
+  @include respond-to("xl") {
+    width: 180px;
+    line-height: 3;
+  }
+  @include respond-to("lg") {
+    width: 160px;
+    line-height: 2.75;
+  }
+  @include respond-to("md") {
+    width: 140px;
+  }
+  @include respond-to("sm") {
+    width: 120px;
+    line-height: 2.5;
+  }
+}
+
+@mixin title($color) {
+    @include resp-font-size(36);
+    @include resp-line-height(56);
+    font-weight: 700;
+    color: $color;
+    position: relative;
+    &::after {  
+        position: absolute;
+        content: "";
+        width: 56px;
+        height: 2px;
+        bottom: -26px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $color;
+    }
+}
+
+@mixin description {
+    @include resp-font-size(18);
+    @include resp-line-height(30);
+    color: $text-muted;
+}

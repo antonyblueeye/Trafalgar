@@ -1,0 +1,59 @@
+{
+  "name": "cbo_examine",
+  "version": "1.0.0",
+  "description": "examine work",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config=webpack.config.prod.js",
+    "dev": "webpack-dev-server --config=webpack.config.dev.js --open"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "keywords": [
+    "layout",
+    "webpack",
+    "examine",
+    "beetroot"
+  ],
+  "author": "Anton Synieokyi <antonyblueeye@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.2.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "imagemin-svgo": "^8.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "img-loader": "^3.0.1",
+    "lost": "^8.3.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "rucksack-css": "^1.0.2",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "normalize.scss": "^0.1.0",
+    "slick-carousel": "^1.8.1",
+    "slick-slider": "^1.8.2"
+  }
+}
